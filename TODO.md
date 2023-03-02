@@ -17,6 +17,10 @@ The set of study IDs that are to be downloaded from Synapse include:
 * MCMPS (22)
 * VMC (1)
 
+Jiang/Yidan's virus/bacteria database is present at: 
+
+`/data/manke/processing/koppstein/inbox/virus`
+
 We need to subset these to include first only those sequenced with 10X Genomics
 scRNA-seq (not ATAC-seq yet., maybe in the future).
 
