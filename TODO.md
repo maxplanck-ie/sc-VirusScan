@@ -53,6 +53,12 @@ deduplicate reads.
 c.f. [github issue](https://github.com/CGATOxford/UMI-tools/issues/436)
 also https://pubmed.ncbi.nlm.nih.gov/30351359/
 
+## Ward's Ideas
+
+* First run kraken on all datasets to filter which ones should be carried forward
+* Then use aligment approach on second pass
+* Q: should we use R1 & R2 of scRNA-seq to feed to Kraken? Or just R2 and match? 
+
 NB: Florian has some compute resource from de.NBI -> check on this with Jiang. 
 
 # Todo
