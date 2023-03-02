@@ -74,7 +74,7 @@ umi_tools extract --bc-pattern=CCCCCCCCCCCCCCCCNNNNNNNNNN --stdin ${input_paired
 
 bowtie2 -x $DATABASE/new_bowtie2/human_ALL -1 $OUTPUT_DIR/${OUTPUT_DIR}_R1_extracted.fastq.gz -2 $OUTPUT_DIR/${OUTPUT_DIR}_R2_extracted.fastq.gz --very-fast-local --no-unal -S $OUTPUT_DIR/${OUTPUT_DIR}.sam -p $threads
 
-bowtie2 -x $VIROMESCAN_PATH/viromescan/database/bowtie2/$DATABASE -q $OUTPUT_DIR/${OUTPUT_DIR}-filter-human-quality-bacteria.trimmed.2.fastq --very-sensitive-local --no-unal -S $OUTPUT_DIR/${OUTPUT_DIR}-final.sam -p 30
+bowtie2 -x $VIROMESCAN_PATH/viromescan/databasehuman/bowtie2/$DATABASE -q $OUTPUT_DIR/${OUTPUT_DIR}-filter--quality-bacteria.trimmed.2.fastq --very-sensitive-local --no-unal -S $OUTPUT_DIR/${OUTPUT_DIR}-final.sam -p 30
 fi
 
 ###############
