@@ -1,2 +1,3 @@
-"bc_pattern" : CCCCCCCCCCCCCCCCNNNNNNNNNN
-"cell_no" : 100
+"files" : "local"
+"chemistry" : "SC3Pv2"
+"transcriptome" : "/data/repository/misc/cellranger_references/cellranger/refdata-gex-GRCh38-2020-A"
