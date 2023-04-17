@@ -2,7 +2,8 @@ rule cellranger:
     input:
         i1 = expand("data/{sample}_test.txt", sample=samples)
     output:
-        o1 = "results/cellranger/{sample}/{sample}/outs/possorted_genome_bam.bam"
+        o1 = "results/cellranger/{sample}/{sample}/outs/possorted_genome_bam.bam",
+        o2 = "results/cellranger/{sample}/{sample}/outs/filtered_feature_bc_matrix/barcodes.tsv.gz"
     priority: 90
     log:
         "results/cellranger/{sample}/{sample}_cellranger.log"

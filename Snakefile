@@ -6,7 +6,7 @@ import pandas as pd
 data_dir = "/data/manke/processing/momin/virome-scan/sc-virome-scan/data"
 
 
-accession_list = pd.read_table("jiang_analysis.tsv")
+accession_list = pd.read_table("SRA.tsv")
 samples = list(accession_list.Samples.unique())
 
 """
