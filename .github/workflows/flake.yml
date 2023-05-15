@@ -27,4 +27,4 @@ jobs:
         run: pip install snakemake
 
       - name: Dry run Snakemake
-        run: snakemake -cores 32 --use-conda --configfile config.yaml --dry-run
+        run: snakemake --cores 32 --use-conda --configfile config.yaml --dry-run
