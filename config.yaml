@@ -1,4 +1,5 @@
-"files" : "proxy"
+"files" : None
 "chemistry" : "SC3Pv2"
 "transcriptome" : "/data/repository/misc/cellranger_references/cellranger/refdata-gex-GRCh38-2020-A"
-"dir" : "/data/manke/processing/momin/virome-scan/sc-virome-scan/data_old/"
+"local_files_dir" : "/data/manke/processing/momin/virome-scan/sc-virome-scan/data_pos_control/SRR13114612"
+"kraken_db": "/data/repository/kraken2_contaminome/virus_db2023"

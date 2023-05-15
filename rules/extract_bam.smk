@@ -1,9 +1,11 @@
 rule extract_bam:
     input:
-        "results/cellranger/{sample}/{sample}/outs/possorted_genome_bam.bam"
+        i1 = "results/cellranger/{sample}/{sample}_finished.txt"
     output:
-        "results/cellranger/{sample}/unmapped_reads.sam"
-    conda:
-        "envs/samtools.yaml"
+        temp("results/cellranger/{sample}/unmapped_reads.sam")
+    log:
+        "results/samtools/{sample}.log"
+    params:
+        "results/cellranger/{sample}/{sample}/outs/possorted_genome_bam.bam"
     shell:
-        "samtools view -f 4 {input} > {output}"
+        "samtools view -@ 16 -f 4 {params} > {output}"
