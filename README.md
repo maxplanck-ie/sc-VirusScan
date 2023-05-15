@@ -1,7 +1,7 @@
 # sc-Virome-Scan: A Snakemake pipeline for detection of viruses in single-cell datasets.
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
-[![GitHub actions status](https://github.com/maxplanck-ie/sc-virome-scan/workflows/Tests/badge.svg?branch=main)](https://github.com/maxplanck-ie/sc-virome-scan/actions?query=branch%3Amain+workflow%3ATests)
+[![GitHub actions status](https://github.com/maxplanck-ie/sc-virome-scan/workflows/Flake Check/badge.svg?branch=dev)](https://github.com/maxplanck-ie/sc-virome-scan/actions?query=branch%3Amain+workflow%3ATests)
 
 
 A method wrapped around Snakemake for swift, precise, and accurate detection of viral pathogens in single-cell
