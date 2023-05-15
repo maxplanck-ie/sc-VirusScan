@@ -30,4 +30,4 @@ jobs:
         run: pip install pandas
 
       - name: Dry run Snakemake
-        run: snakemake --cores 32 --use-conda --configfile config.yaml --dry-run
+        run: snakemake --cores 32 --use-conda --configfile config.yaml --dry-run --conda-frontend conda
