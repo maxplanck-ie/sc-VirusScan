@@ -1,9 +1,0 @@
-channels:
-  - conda-forge
-  - bioconda
-  - defaults
-dependencies:
-  - entrez-direct
-  - parallel-fastq-dump
-  - umi_tools
-  - bowtie2

@@ -18,5 +18,5 @@ rule cellranger:
         module load cellranger
         touch {output.o1}
         cd results/cellranger/{wildcards.sample}/ 
-        cellranger count --id {wildcards.sample} --fastqs {params.p3} --transcriptome {config[transcriptome]} --localcores {threads} --chemistry {config[chemistry]}
+        cellranger count --id {wildcards.sample} --fastqs {params.p3} --transcriptome {config[transcriptome]} --localcores {threads}
         """
