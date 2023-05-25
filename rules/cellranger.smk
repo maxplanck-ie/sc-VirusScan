@@ -9,9 +9,7 @@ rule cellranger:
     threads: 30
     log:
         "results/cellranger/{sample}/{sample}.cellranger.log"
-    params: 
-        p1 = config["chemistry"], 
-        p2 = config["transcriptome"],
+    params:  
         p3 = "/data/manke/processing/momin/virome-scan/sc-virome-scan/data/{sample}/"
     shell:
         """
