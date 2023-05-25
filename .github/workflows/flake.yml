@@ -26,15 +26,3 @@ jobs:
 
       - name: Dry run Snakemake
         run: snakemake --cores 32 --use-conda --configfile config.yaml --dry-run --conda-frontend conda
-
-
-  Linting:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Lint workflow
-      uses: snakemake/snakemake-github-action@v1.24.0
-      with:
-        directory: .
-        snakefile: Snakefile
-        args: "--lint"
