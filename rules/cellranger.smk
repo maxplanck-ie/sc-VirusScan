@@ -2,7 +2,7 @@ rule cellranger:
     input:
         i1 = expand("data/{sample}_test.txt", sample=samples)
     output:
-        o1 = temp("results/cellranger/{sample}/{sample}_finished.txt")
+        o1 = "results/cellranger/{sample}/{sample}_finished.txt"
     priority: 90
     resources:
         mem_mb = 26000

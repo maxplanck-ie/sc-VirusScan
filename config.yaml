@@ -1,4 +1,4 @@
-"files" : None
+"files" : "synapse"
 "transcriptome" : "/data/repository/misc/cellranger_references/cellranger/refdata-gex-GRCh38-2020-A"
 "local_files_dir" : "/data/manke/processing/momin/virome-scan/sc-virome-scan/data_pos_control/SRR13114612"
-"kraken_db": "/data/repository/kraken2_contaminome/virus_db2023"
+"kraken_db": "/data/manke/processing/momin/virome-scan/sc-virome-scan/db/t2tDB/t2tDB/"

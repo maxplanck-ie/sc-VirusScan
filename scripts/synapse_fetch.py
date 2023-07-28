@@ -91,7 +91,20 @@ df1.to_csv(args.output_file_dir + "synapse_ids_all.tsv", sep="\t", index=False)
 # Writing Sample and corresponding Synapse IDs
 filtered_df = df1[df1['Samplename'].str.contains('R1|R2')]
 filtered_df = filtered_df[['Samplename', 'SynapseID']]
-filtered_df.to_csv(args.output_file_dir + "synapse_fastqs_ids.tsv",
+filtered_df['Samples'] = filtered_df['Samplename'].str.replace(r'_R[12].*', '', regex=True)
+filtered_df2 = filtered_df[["Samples", "SynapseID"]]
+filtered_df2['count'] = filtered_df2.groupby('Samples').cumcount() + 1
+df2_pivoted = filtered_df2.pivot(index='Samples', columns='count',
+                                 values='SynapseID')
+df2_pivoted.columns = [f"R{i}" for i in df2_pivoted.columns]
+df2_pivoted = df2_pivoted.reset_index()
+df2_pivoted['Samples'] = df2_pivoted['Samples'].str.replace(r'_L(\d+)', r'L\1',
+                                                            regex=True)
+df2_pivoted['Samples'] = df2_pivoted['Samples'].str.replace(r'S1_', 'S1',
+                                                            regex=True)
+df2_pivoted['Samples'] = df2_pivoted['Samples'].str.replace(r'L0*(\d+)', r'L\1',
+                                                            regex=True)
+df2_pivoted.to_csv(args.output_file_dir + "metadata.tsv",
                    sep="\t", index=False)
 
 print("\nRetrieving Data Successfull...")

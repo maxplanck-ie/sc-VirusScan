@@ -11,6 +11,6 @@ rule extract_tags:
         p1 = "results/count_matrix/{sample}/",
         p2 = "results/cellranger/{sample}/{sample}/outs/filtered_feature_bc_matrix/barcodes.tsv.gz"
     log:
-        "results/count_matrix/{sample}_bam_extract.log"
+        "results/logs/count_matrix/{sample}_bam_extract.log"
     shell:
         "python3 scripts/bam_extract.py -i {input.i1} -k {input.i2} -b {params.p2} -o {params.p1}"

@@ -4,7 +4,7 @@ import pandas as pd
 
 configfile: "config.yaml"
 
-accession_list = pd.read_table("SRA.tsv")
+accession_list = pd.read_table("metadata.tsv")
 samples = list(accession_list.Samples.unique())
 
 
@@ -21,7 +21,7 @@ rule all:
             expand("data/{sample}_test.txt",sample=samples),
             expand("results/kraken2/{sample}/{sample}.kraken",sample=samples),
             expand("results/kraken2/{sample}/{sample}.report.txt",sample=samples),
-            expand("results/kraken2/{sample}/{sample}_classified_out.fastq",sample=samples),
+            #expand("results/kraken2/{sample}/{sample}_classified_out.fastq",sample=samples),
             expand("results/cellranger/{sample}/{sample}_finished.txt",sample=samples),
             expand("results/cellranger/{sample}/unmapped_reads.sam", sample=samples),
             expand("results/count_matrix/{sample}/count_matrix.tsv", sample=samples)
