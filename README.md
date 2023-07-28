@@ -11,11 +11,11 @@ RNA (scRNA) datasets to investigate the possible correlation between viral patho
 
 # Installation
 
-`git clone https://github.com/maxplanck-ie/sc-virome-scan.git`
+`git clone -b dev https://github.com/maxplanck-ie/sc-virome-scan.git`
 
 `cd sc-virome-scan`
 
-`mamba create -f env.yaml`
+`mamba create -f env.yaml -n sc-virome-scan`
 
 ## Usage
 
