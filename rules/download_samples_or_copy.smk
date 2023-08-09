@@ -4,7 +4,8 @@ rule download_samples_or_copy:
         o2 = "data/{sample}/{sample}_S1_L001_R2_001.fastq.gz"
     params:
         outdir = "data/{sample}/",
-        filetype = config["files"]
+        filetype = config["mode"],
+        samplesheet = config["samplesheet"]
     threads: 16
     resources:
         mem_mb = 20000
@@ -20,7 +21,7 @@ rule download_samples_or_copy:
             done
         
         elif [ $filetype == "synapse" ]; then
-            result=$(grep "{wildcards.sample}" "metadata.tsv")
+            result=$(grep "{wildcards.sample}" {config[samplesheet]})
             R1=$(echo "$result" | awk '{{print $2}}')
             R2=$(echo "$result" | awk '{{print $3}}')
             synapse get $R1 --multiThreaded --downloadLocation {params.outdir} 
@@ -29,8 +30,10 @@ rule download_samples_or_copy:
             mv data/{wildcards.sample}/*_R2_* data/{wildcards.sample}/{wildcards.sample}_S1_L001_R2_001.fastq.gz
         
         else
-            parallel-fastq-dump --sra-id {wildcards.sample} --split-files --threads {threads} --outdir {params.outdir}  --gzip --tmpdir /data/manke/processing/momin/virome-scan/sc-virome-scan/tmp
+            mkdir tmp/
+            parallel-fastq-dump --sra-id {wildcards.sample} --split-files --threads {threads} --outdir {params.outdir}  --gzip --tmpdir tmp/
             mv data/{wildcards.sample}/{wildcards.sample}_2.fastq.gz data/{wildcards.sample}/{wildcards.sample}_S1_L001_R1_001.fastq.gz 
             mv data/{wildcards.sample}/{wildcards.sample}_3.fastq.gz data/{wildcards.sample}/{wildcards.sample}_S1_L001_R2_001.fastq.gz 
+            rm -rf tmp/
         fi     
         """

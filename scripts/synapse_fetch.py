@@ -104,7 +104,7 @@ df2_pivoted['Samples'] = df2_pivoted['Samples'].str.replace(r'S1_', 'S1',
                                                             regex=True)
 df2_pivoted['Samples'] = df2_pivoted['Samples'].str.replace(r'L0*(\d+)', r'L\1',
                                                             regex=True)
-df2_pivoted.to_csv(args.output_file_dir + "metadata.tsv",
+df2_pivoted.to_csv(args.output_file_dir + "synapse_samplesheet.tsv",
                    sep="\t", index=False)
 
 print("\nRetrieving Data Successfull...")

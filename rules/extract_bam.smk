@@ -1,11 +1,9 @@
 rule extract_bam:
     input:
-        i1 = "results/cellranger/{sample}/{sample}_finished.txt"
+        i1 = "results/cellranger/{sample}/possorted_genome_bam.bam"
     output:
         temp("results/cellranger/{sample}/unmapped_reads.sam")
-    log:
-        "results/samtools/{sample}.log"
     params:
         "results/cellranger/{sample}/{sample}/outs/possorted_genome_bam.bam"
     shell:
-        "samtools view -@ 16 -f 4 {params} > {output}"
+        "samtools view -@ 16 -f 4 {input.i1} > {output}"
