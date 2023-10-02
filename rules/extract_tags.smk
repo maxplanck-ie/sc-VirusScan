@@ -5,9 +5,9 @@ rule extract_tags:
     output:
         o1 = "results/count_matrix/{sample}/count_matrix.tsv",
         o2 = "results/count_matrix/{sample}/kraken_reads_count_matrix.tsv",
-    threads: 16
+    threads: 8
     resources:
-        mem_mb = 40000
+        mem_mb = 60000
     params:
         p1 = "results/count_matrix/{sample}/",
         p2 = "results/cellranger/{sample}/filtered_feature_bc_matrix/barcodes.tsv.gz",

@@ -16,6 +16,8 @@ include: "rules/extract_bam.smk"
 include: "rules/extract_tags.smk"
 include: "rules/report.smk"
 
+localrules: download_samples_or_copy
+
 rule all:
     input:
             expand("data/{sample}/{sample}_S1_L001_R1_001.fastq.gz", sample=samples),

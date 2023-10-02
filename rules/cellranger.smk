@@ -6,8 +6,9 @@ rule cellranger:
         o2 = "results/cellranger/{sample}/possorted_genome_bam.bam"
     priority: 80
     resources:
-        mem_mb = 26000
-    threads: 30
+        mem_mb = 80000,
+        runtime = 1200
+    threads: 20
     log:
         "results/cellranger/{sample}/{sample}.cellranger.log"
     params:  
