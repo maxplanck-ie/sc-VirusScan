@@ -13,6 +13,7 @@ parser.add_argument("-b", "--barcode_file",
                     help="Filtered Barcodes TSV file from CellRanger")
 parser.add_argument("-o", "--output-file",
                     metavar="PATH",
+                    default="count_matrix.tsv",
                     help="Path to your output file")
 
 args = parser.parse_args()
@@ -69,4 +70,4 @@ merged_barcodes = pd.merge(merged_subset, barcodes,
 result = merged_barcodes.pivot_table(index='Tax_ID', columns='CR',
                                      values='Read Name',
                                      aggfunc='count').fillna(0.).astype(int)
-result.to_csv(args.output_file + "count_matrix.tsv", sep='\t')
+result.to_csv(args.output_file, sep='\t')

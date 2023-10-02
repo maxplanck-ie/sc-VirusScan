@@ -1,8 +1,10 @@
 rule extract_tags:
     input:
-        "results/cellranger/{sample}/unmapped_reads.sam"
+        i1 = "results/cellranger/{sample}/unmapped_reads.sam",
+        i2 = "results/kraken_reads/{sample}_kraken_reads.sam"
     output:
-        "results/count_matrix/{sample}/count_matrix.tsv"
+        o1 = "results/count_matrix/{sample}/count_matrix.tsv",
+        o2 = "results/count_matrix/{sample}/kraken_reads_count_matrix.tsv",
     threads: 16
     resources:
         mem_mb = 40000
@@ -13,4 +15,7 @@ rule extract_tags:
     log:
         "results/logs/count_matrix/{sample}_bam_extract.log"
     shell:
-        "python3 {config[scripts_dir]}/bam_extract.py -i {input} -k {params.p3} -b {params.p2} -o {params.p1}"
+        """
+        python3 {config[scripts_dir]}/bam_extract.py -i {input.i1} -k {params.p3} -b {params.p2} -o {output.o1}
+        python3 {config[scripts_dir]}/bam_extract.py -i {input.i2} -k {params.p3} -b {params.p2} -o {output.o2}
+        """

@@ -30,10 +30,9 @@ rule download_samples_or_copy:
             mv data/{wildcards.sample}/*_R2_* data/{wildcards.sample}/{wildcards.sample}_S1_L001_R2_001.fastq.gz
         
         else
-            mkdir tmp/
+            mkdir -p tmp/
             parallel-fastq-dump --sra-id {wildcards.sample} --split-files --threads {threads} --outdir {params.outdir}  --gzip --tmpdir tmp/
             mv data/{wildcards.sample}/{wildcards.sample}_2.fastq.gz data/{wildcards.sample}/{wildcards.sample}_S1_L001_R1_001.fastq.gz 
             mv data/{wildcards.sample}/{wildcards.sample}_3.fastq.gz data/{wildcards.sample}/{wildcards.sample}_S1_L001_R2_001.fastq.gz 
-            rm -rf tmp/
         fi     
         """

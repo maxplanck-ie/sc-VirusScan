@@ -8,7 +8,7 @@ rule kraken_reports:
         o4 = "results/kraken_plots/Clustermap_Specieswise_log10.png"
     priority: 10
     resources:
-        mem_mb = 1000
+        mem_mb = 40000
     params:
         p1 = "results/kraken_plots/",
         p2 = "results/kraken2/"
@@ -16,5 +16,5 @@ rule kraken_reports:
         "results/logs/plots/kraken_plots.log"
     shell:
         """
-        python3 scripts/kraken_plot.py -i {params.p2} -o {params.p1}
+        python3 {config[scripts_dir]}/kraken_plot.py -i {params.p2} -o {params.p1}
         """
