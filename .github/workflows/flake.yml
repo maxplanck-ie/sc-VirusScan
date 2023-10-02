@@ -1,0 +1,28 @@
+name: Flake Check
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  flake-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install Snakemake
+        run: pip install snakemake
+
+      - name: Installing Pandas
+        run: pip install pandas
+
+      - name: Dry run Snakemake
+        run: snakemake --cores 32 --use-conda --configfile config.yaml --dry-run --conda-frontend conda

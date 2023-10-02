@@ -1,0 +1,7 @@
+"samplesheet" : "samplesheet.tsv"
+"mode" : "synapse"
+"local_files_dir" : None
+"kraken_db":  "Path to Custom KrakenDB"
+"cellranger":  "Path of CellRanger Executable"
+"transcriptome" : "Path to CellRanger Reference Transcriptome"
+"scripts_dir": "scripts/"
