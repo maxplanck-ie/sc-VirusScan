@@ -12,7 +12,7 @@ rule kraken2_processing:
         p1 = "results/kraken_reads/{sample}_ReadIds.txt",
         p2 = "results/kraken_reads/{sample}_krakenReads.bam"
     log:
-        "results/logs/kraken2/{sample}.kraken.log"
+        "results/logs/kraken2_processing/{sample}.log"
     shell:
         """
         mkdir -p results/kraken_reads
