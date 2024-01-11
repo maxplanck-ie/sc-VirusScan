@@ -10,6 +10,7 @@ Welcome to sc-VirusScan's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+sc-VirusScan is a method wrapped around Snakemake that enables accurate, sensitive and scalable detection of viral pathogens in single-cell RNA datasets. The method integrates the strengths of two standard approaches, a standard mapping based approach and a Kraken2 k-mer based approach which provides rapid taxonomic classification.The output of the sc-VirusScan pipeline can be integrated easily into existing single cell analysis frameworks (Seurat and Scanpy) which can provide standardized and reliable way to scrutinize virus infections at the single cell level resolution.
 
 
 Indices and tables
