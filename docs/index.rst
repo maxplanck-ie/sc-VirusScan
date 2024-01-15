@@ -30,10 +30,10 @@ sc-VirusScan by installed by following the below mentioned steps.
 
 1. Clone the Git Repository using: ``git clone https://github.com/maxplanck-ie/sc-virome-scan.git``
 2. Change the directory to sc-virus-scan: ``cd sc-virus-scan``
-3. The dependecies of sc-VirusScan can be installed from the provided ``env.yaml`` by using conda/mamba.  
-   
+3. The dependecies of sc-VirusScan can be installed from the provided ``env.yaml`` by using conda/mamba
+
    ``mamba env create -f env.yaml -n sc-VirusScan``
-4. sc-VirusScan requires CellRanger as part of dependencies which can installed from `https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/installation`
+4. sc-VirusScan requires **CellRanger** as part of dependencies which can installed from `here <https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/installation>`
 5. Upon successfull installation of CellRanger, the CellRanger path needs to be updated in the ``config.yaml`` file accordingly
 6. Lastly, the ``config.yaml`` needs to be modified as per your system environment variables. More information about config.yaml along with its description can be found in the section below.
 
