@@ -4,14 +4,14 @@ Method
 ===========
 
 .. image:: method.png
-   :scale: 40 %
+   :scale: 70 %
    :height: 200px
-   :width: 200 px
+   :width: 200px
 
 The sc-VirusScan method consists of two major modules:
 
-* A virus screening module
-* sc-RNAseq analysis module
+* **A virus screening module**
+* **sc-RNAseq analysis module**
 
 The results from both modules are integrated and allow detection and classification of viral pathogens in single-cell
 RNA datasets. 
