@@ -7,6 +7,7 @@ Method
    :scale: 90 %
    :height: 500px
    :width: 500px
+   :align: center
 
 The sc-VirusScan method consists of two major modules:
 
