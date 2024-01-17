@@ -25,6 +25,8 @@ Credits
 -------------
 sc-VirusScan is developed by Saim Momin under supervision of Deboutte W and Manke T. at `Bioinformatics Unit <http://www.ie-freiburg.mpg.de/bioinformaticsfac>`_ of the `Max Planck Institute for Immunobiology and Epigenetics <http://www.ie-freiburg.mpg.de/>`_, Freiburg.
 
+.. image:: mpi_logo.jpg
+   :align: center
 
 Help and Support
 ----------------
