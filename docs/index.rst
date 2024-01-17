@@ -13,16 +13,7 @@ Welcome to sc-VirusScan's documentation!
 sc-VirusScan is a method wrapped around Snakemake that enables accurate, sensitive and scalable detection of viral pathogens in single-cell RNA datasets. The method integrates the strengths of two standard approaches, a standard mapping based approach and a Kraken2 k-mer based approach which provides rapid taxonomic classification.The output of the sc-VirusScan pipeline can be integrated easily into existing single cell analysis frameworks (Seurat and Scanpy) which can provide standardized and reliable way to scrutinize virus infections at the single cell level resolution.
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-
-==================
 Installation and Setup
 ==================
 
@@ -38,13 +29,23 @@ sc-VirusScan by installed by following the below mentioned steps.
 6. Lastly, the ``config.yaml`` needs to be modified as per your system environment variables. More information about config.yaml along with its description can be found in the section below.
 
 Description of ``config.yaml`` file
-.. code-block:: yaml
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   samplesheet : # Path to samplesheet file. More details about Samplesheet schema can be found below.
-   mode : # Pipeline mode to execute. (synapse | sra | local)
-   local_data_dir : # If local mode chosen, specify here the directory path for the files.
-   kraken_db: # Path to Custom KrakenDB. More details can be found below.
-   cellranger: # Path of CellRanger Executable.
-   transcriptome : # Path to your human transcriptome required from CellRanger count
-   scripts_dir: # Path to scripts directory present in base directory of the workflow
+.. code-block:: bash
+
+   *samplesheet* : #Path to samplesheet file. More details about Samplesheet schema can be found below.
+   *mode* : #Pipeline mode to execute. (synapse | sra | local)
+   *local_data_dir* : #If local mode chosen, specify the directory path for the input files here.
+   *kraken_db*: #Path to Custom KrakenDB. More details can be found below.
+   *cellranger*: #Path of CellRanger Executable.
+   *transcriptome* : #Path to your human transcriptome required from CellRanger count
+   *scripts_dir*:  #Path to scripts directory present in base directory of the workflow
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
