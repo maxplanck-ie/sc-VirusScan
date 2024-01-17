@@ -50,7 +50,7 @@ Description of ``config.yaml`` file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. **samplesheet** : The pipeline requires a ``samplesheet.tsv`` file to initiate the analysis. The samplesheet is a tab seperated file (TSV) acts as blueprint schema for analysis. Depending on the mode of pipeline, there are two reprensatative schema of samplesheet file. The provided samplesheet file will be then used to download the files from SRA database or Synapse AD Knowledge Portal and perform subsequent analysis on it.
 
-   i. **SRA mode (SRA)**: For running the pipeline in SRA mode, the user needs to provide a list of SRA Ids as shown in the example below. This file is further used to download the files from SRA database and perform analysis on it.
+   a. **SRA mode (SRA)**: For running the pipeline in SRA mode, the user needs to provide a list of SRA Ids as shown in the example below. This file is further used to download the files from SRA database and perform analysis on it.
 
    .. code-block:: bash
 
@@ -63,7 +63,7 @@ Description of ``config.yaml`` file
 
 
 
-   ii. **Synapse mode (synapse)**: To execute the pipeline in ``synapse`` mode, user needs to generate the samplesheet.tsv with the help of ``synapse_fetch.py`` script present in the `scripts <https://github.com/maxplanck-ie/sc-VirusScan/tree/main/scripts>`_  directory of the repository. This scripts takes a Parent SynapseID as input and internally programmatically queries the Synapse Server to retreive all the associated Syanpse Ids for the raw FASTQ files under the provided parent SynapseID and returning a Tab-Sepated file consisting of SampleName, Read1 SynapseID, Read2 SynapseID as representated below. This obtained file is further used to download the files from Synapse AD Knowledge Portal and perform analysis on it.
+   b. **Synapse mode (synapse)**: To execute the pipeline in ``synapse`` mode, user needs to generate the samplesheet.tsv with the help of ``synapse_fetch.py`` script present in the `scripts <https://github.com/maxplanck-ie/sc-VirusScan/tree/main/scripts>`_  directory of the repository. This scripts takes a Parent SynapseID as input and internally programmatically queries the Synapse Server to retreive all the associated Syanpse Ids for the raw FASTQ files under the provided parent SynapseID and returning a Tab-Sepated file consisting of SampleName, Read1 SynapseID, Read2 SynapseID as representated below. This obtained file is further used to download the files from Synapse AD Knowledge Portal and perform analysis on it.
 
    .. code-block:: bash
 
@@ -76,24 +76,49 @@ Description of ``config.yaml`` file
 
 
 
-   iii. **Local mode (local)**:To execute the pipeline in ``local`` mode (ie. files are pre-downloaded),user needs to specify the Sample names in ``samplesheet.tsv`` file. Along with this, user has to provide the path to the directory where the files are present in the ``config.yaml`` file under ``local_data_dir`` key.
+   c. **Local mode (local)**:To execute the pipeline in ``local`` mode (ie. files are pre-downloaded),user needs to specify the Sample names in ``samplesheet.tsv`` file. Along with this, user has to provide the path to the directory where the files are present in the ``config.yaml`` file under ``local_data_dir`` key.
 
 2. **mode** (SRA | synapse): Currently, sc-VirusScan accomodates two distinct modes depending on the source of input data: Sequence Read Archive (SRA) and Synapse AD Portal (synapse) for specifying input files for analysis. Depending on the input data type, the mode can be modified in the ``config.yaml`` file.
 
 3. **kraken_db**: As sc-VirusScan consists of viral screening module internally relying on Kraken2 for rapid taxonomic classification, it requires a KrakenDB in the backend. One can provide pre-built Kraken2 database available `here <https://benlangmead.github.io/aws-indexes/k2>`_ or create a custom Kraken database based on analysis specificity. The path of downloaded Kraken2 database, needs to be assigned to `krakendb` key in `config.yaml` file.
 
-4. **cellranger**: Path of CellRanger executable. This can be located using by the command `which cellranger`.
+4. **cellranger**: Path of CellRanger executable. This can be located using by the command ``which cellranger``.
 
 5. **transcriptome**: The CellRanger count requires a Human reference transcriptome for scRNA-seq analysis module. This reference
-transcriptome can be either be manually built using Cellranger `mkref` as described `here <https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/advanced/references>`_ or can be downloaded pre-built from 10X Genomics avalaible `here <https://www.10xgenomics.com/support/software/cell-ranger/downloads#reference-downloads>`_. Once the transcriptome is downloaded/built,  specify its path in the `config.yaml` file corresponding to `transcriptome` key.
+transcriptome can be either be manually built using **Cellranger mkref** as described `here <https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/advanced/references>`_ or can be downloaded pre-built from 10X Genomics avalaible `here <https://www.10xgenomics.com/support/software/cell-ranger/downloads#reference-downloads>`_. Once the transcriptome is downloaded/built,  specify its path in the `config.yaml` file corresponding to `transcriptome` key.
 
 6. **scripts_dir**: This path refers to the scripts directory present in the base directory of the workflow.
 
 
+Important Note For Synapse Data Analysis mode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Before you can download a file from Synapse, you must determine whether you have access to it. Further information about Synapse Data Access can be found `here <https://help.synapse.org/docs/Finding-and-Downloading-Data.2003796231.html#FindingandDownloadingData-AccessingData>`_.  
 
+In order to download and analyse data from Synapse Portal, user needs a ``.synpaseConfig`` file located in ``~/.synapseConfig`` directory. This file contains individual Username and Access Token to allow access to Synapse programmatically (Automatically taken care by the pipeline) and download the relevant data based on the user input. More information on setting up the synapseConfig file can be found `here <https://python-docs.synapse.org/build/html/Credentials.html#use-synapseconfig>`_.
 
+Steps to setup ``.synapseConfig`` file
+++++++++++++++++++++++++++++++++++++++
+1. Check in the home directory if ``.synapseConfig`` file exists.
 
+2. If not, download the config template from `here <https://raw.githubusercontent.com/Sage-Bionetworks/synapsePythonClient/develop/synapseclient/.synapseConfig>`_
 
+3. Once downloaded, the user needs to update the fields of username and authtoken. An example is respresented below:
+
+.. code-block:: bash
+
+    ###########################
+    # Login Credentials       #
+    ###########################
+   
+    ## Used for logging in to Synapse
+    ## Alternatively, you can use rememberMe=True in synapseclient.login or login subcommand of the commandline client.
+    [authentication]
+    username = YOUR_SYNAPSE_USERNAME
+    authtoken = YOUR_SYNAPSE_AUTHENTICATION_TOKEN
+
+4. Authentication Token can be generated from your Synapse User Account. More information can be found `here <https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens>`_.
+
+5. After the changes mentioned above, the ``.synapseConfig`` file is ready to be used and can be utilized by sc-VirusScan automatically.
 
 Indices and tables
 ==================
