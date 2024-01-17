@@ -5,8 +5,8 @@ Method
 
 .. image:: method.png
    :scale: 70 %
-   :height: 200px
-   :width: 200px
+   :height: 600px
+   :width: 600px
 
 The sc-VirusScan method consists of two major modules:
 
