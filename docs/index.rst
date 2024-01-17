@@ -138,9 +138,8 @@ Once all the configuration dependencies are met and paramaters are set in the ``
 
 --profile: If slurm profile available, specify the slurm profile name  
 
-
-Pipeline Output 
-+++++++++++++++++++++++++++++++++++++++
+Pipeline Outputs
+^^^^^^^^^^^^^^^^^^
 
 On successfully completion of sc-VirusScan, following output file are generated in the respective directories as representated below.
 
@@ -171,6 +170,8 @@ On successfully completion of sc-VirusScan, following output file are generated 
    │       └── Clustermap_Specieswise_log10.png
    └── logs
    
+The users can use the ``count_matrix.tsv`` file from the results directory along with the Cellranger barcodes in the sample wise directories under cellranger directory for further downstream single cell analysis using Seurat and ScanPy.
+
 
 Indices and tables
 ==================
