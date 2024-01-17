@@ -4,9 +4,9 @@ Method
 ===========
 
 .. image:: method.png
-   :scale: 100 %
-   :height: 600px
-   :width: 600px
+   :scale: 90 %
+   :height: 500px
+   :width: 500px
 
 The sc-VirusScan method consists of two major modules:
 
@@ -16,11 +16,10 @@ The sc-VirusScan method consists of two major modules:
 The results from both modules are integrated and allow detection and classification of viral pathogens in single-cell
 RNA datasets. 
 
-The virus screening module utilizes the Kraken2 tool for swift taxonomic classification of input sequences, enabling rapid identification and
+The virus screening module utilizes the **Kraken2** tool for swift taxonomic classification of input sequences, enabling rapid identification and
 classification of viral sequences.
 
-The sc-RNAseq analysis module processes single-cell RNA data by internally executing a sequence of
-steps using Cell Ranger.
+The sc-RNAseq analysis module processes single-cell RNA data by internally executing a sequence of steps using **Cell Ranger**.
 
 The results obtained from both modules are integrated to produce a count matrix.
 
