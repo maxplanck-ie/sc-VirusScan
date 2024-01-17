@@ -5,8 +5,8 @@ Installation and Setup
 
 sc-VirusScan by installed by following the below mentioned steps.
 
-1. Clone the Git Repository using: ``git clone https://github.com/maxplanck-ie/sc-virome-scan.git``
-2. Change the directory to sc-virus-scan: ``cd sc-virus-scan``
+1. Clone the Git Repository using: ``git clone https://github.com/maxplanck-ie/sc-VirusScan.git``
+2. Change the directory to sc-virus-scan: ``cd sc-VirusScan``
 3. The dependecies of sc-VirusScan can be installed from the provided ``env.yaml`` by using conda/mamba
 
    ``mamba env create -f env.yaml -n sc-VirusScan``
