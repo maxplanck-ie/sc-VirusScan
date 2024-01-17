@@ -16,6 +16,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   method.rst
    installation.rst
    Pipeline.rst
 
