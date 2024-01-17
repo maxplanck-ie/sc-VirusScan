@@ -10,11 +10,22 @@ sc-VirusScan is a method wrapped around Snakemake that enables accurate, sensiti
 
 
 
+Credits
+-------------
+sc-VirusScan is developed by Saim Momin under supervision of Deboutte W and Manke T. at `Bioinformatics Unit <http://www.ie-freiburg.mpg.de/bioinformaticsfac>`_ of the `Max Planck Institute for Immunobiology and Epigenetics <http://www.ie-freiburg.mpg.de/>`_, Freiburg.
+
+
+Help and Support
+----------------
+
+For feature requests or bug reports, please open an issue on `our GitHub Repository <https://github.com/maxplanck-ie/sc-VirusScan>`__.
+
+
 
 Contents
 -------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    method.rst
    installation.rst
