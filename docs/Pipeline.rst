@@ -4,7 +4,7 @@ Pipeline Execution
 ==================
 Once all the configuration dependencies are met and paramaters are set in the ``config.yaml``, sc-VirusScan can be initiated as described below:
 
-1. Activate the conda environment: ``conda activate sc-virus-scan``
+1. Activate the conda environment: ``conda activate sc-VirusScan``
 
 2. Once conda environment is activated, trigger the pipeline using following command:
 
