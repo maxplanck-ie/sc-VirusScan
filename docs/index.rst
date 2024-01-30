@@ -23,7 +23,7 @@ Contents
 
 Credits
 -------------
-sc-VirusScan is developed by Saim Momin under supervision of Deboutte W and Manke T. at `Bioinformatics Unit <http://www.ie-freiburg.mpg.de/bioinformaticsfac>`_ of the `Max Planck Institute for Immunobiology and Epigenetics <http://www.ie-freiburg.mpg.de/>`_, Freiburg.
+sc-VirusScan was developed by Saim Momin as a Master Thesis project for the Bioinformatics Master program of the `Saarland University <https://zbi-www.bioinf.uni-sb.de/en/>`_ ,under the supervision of Deboutte W and Manke T. at the `Bioinformatics Unit <http://www.ie-freiburg.mpg.de/bioinformaticsfac>`_ of the `Max Planck Institute for Immunobiology and Epigenetics <http://www.ie-freiburg.mpg.de/>`_, Freiburg.
 
 .. image:: mpi_logo.jpg
    :align: center
